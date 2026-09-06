@@ -892,6 +892,7 @@ main > section:last-child { margin-bottom: var(--block-gap); }
 
 .founder-portrait {
   aspect-ratio: 4 / 4;
+  width: 100%;
   border-radius: var(--radius-lg);
   background: var(--ink);
   position: relative;
@@ -1990,6 +1991,11 @@ a:hover .arrow-circle svg { transform: translateX(3px); }
   .diagnostic { padding: 40px 24px; }
   /* отступ 16px со всех сторон — как у карточек направлений */
   .founder-panel { padding: 16px; }
+  /* на планшетном брейкпоинте (980px) фото ограничено 380px, чтобы не
+     доминировало в макете — но то же ограничение действовало и на
+     телефонах и на широких экранах не давало фото стать крупнее.
+     Для телефонов снимаем ограничение полностью. */
+  .founder-portrait { max-width: none; }
   .founder-grid { gap: 24px; }
   .founder-bio { grid-template-columns: 1fr; }
   .founder-facts { flex-direction: column; }
