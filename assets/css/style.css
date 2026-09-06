@@ -2737,3 +2737,132 @@ a:hover .arrow-circle svg { transform: translateX(3px); }
   .cta-alt-text { font-size: 14px; }
   .cta-form.request-form { padding: 32px 22px 30px; }
 }
+
+/* ==========================================================================
+   «Что мы берём на себя» на RPO — светлые плитки с номером
+   ========================================================================== */
+
+.scope-section { padding: 0; }
+
+.scope-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.scope-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 22px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(var(--white), var(--white)) padding-box,
+    linear-gradient(115deg, var(--accent-soft) 0%, #D9E0FF 50%, var(--accent-soft) 100%) border-box;
+  background-size: 100% 100%, 200% 100%;
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.scope-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 46px -26px rgba(49, 87, 255, .45);
+  background-image:
+    linear-gradient(var(--white), var(--white)),
+    linear-gradient(115deg, var(--accent) 0%, #9DB2FF 25%, var(--accent) 50%, #9DB2FF 75%, var(--accent) 100%);
+  background-size: 100% 100%, 300% 100%;
+  animation: card-border-flow 3.5s linear infinite;
+}
+
+/* номер в плашке — как в блоке «Кому подходит» и в карточках на HR-as-a-Service */
+.scope-num {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  background: var(--bg-alt);
+  border: 1px solid #DDE3FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--accent);
+  transition: border-color .3s var(--ease), transform .35s var(--ease);
+}
+.scope-item:hover .scope-num { border-color: var(--accent); transform: scale(1.06); }
+
+.scope-text {
+  font-size: 18px;
+  line-height: 1.35;
+  color: var(--ink-soft);
+}
+
+/* галочка вместо номера в тёмном блоке «Кому подходит» */
+.metric-num svg { stroke: currentColor; }
+
+/* ==========================================================================
+   Карточки «Почему RPO» — в стиле карточек услуг
+   ========================================================================== */
+
+.why-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(var(--white), var(--white)) padding-box,
+    linear-gradient(115deg, var(--accent-soft) 0%, #D9E0FF 50%, var(--accent-soft) 100%) border-box;
+  background-size: 100% 100%, 200% 100%;
+  transition: transform .45s var(--ease), box-shadow .45s var(--ease);
+}
+.why-card > * { position: relative; z-index: 1; }
+.why-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 90% at 15% 0%, rgba(49, 87, 255, .10), transparent 60%);
+  opacity: 0;
+  transition: opacity .4s var(--ease);
+  pointer-events: none;
+  z-index: 0;
+}
+.why-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 60px -30px rgba(49, 87, 255, .45);
+  background-image:
+    linear-gradient(var(--white), var(--white)),
+    linear-gradient(115deg, var(--accent) 0%, #9DB2FF 25%, var(--accent) 50%, #9DB2FF 75%, var(--accent) 100%);
+  background-size: 100% 100%, 300% 100%;
+  animation: card-border-flow 3.5s linear infinite;
+}
+.why-card:hover::after { opacity: 1; }
+
+.why-num {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 44px;
+  line-height: 1;
+  color: var(--accent);
+  opacity: .14;
+  margin-bottom: 12px;
+  transition: opacity .4s var(--ease);
+}
+.why-card:hover .why-num { opacity: .24; }
+
+@media (max-width: 1100px) {
+  .scope-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .scope-grid { grid-template-columns: 1fr; gap: 12px; }
+  .scope-item { padding: 16px; gap: 14px; }
+  .scope-num { width: 38px; height: 38px; font-size: 14px; }
+  .scope-text { font-size: 16px; }
+  .why-num { font-size: 36px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scope-item:hover,
+  .why-card:hover { animation: none !important; }
+}
