@@ -1745,6 +1745,8 @@ a:hover .arrow-circle svg { transform: translateX(3px); }
 .page-hero .container { position: relative; z-index: 1; }
 .page-hero-inner { max-width: 760px; }
 .page-hero h1 { font-size: clamp(36px, 4.6vw, 56px); margin-top: 16px; }
+/* часть заголовка в скобках всегда с новой строки, а не переносом посередине */
+.page-hero h1 .accent-line { display: block; }
 .page-hero .service-tag {
   color: var(--accent);
   font-family: var(--font-head);
