@@ -2054,3 +2054,83 @@ a:hover .arrow-circle svg { transform: translateX(3px); }
   .hero h1 { font-size: 28px; }
   .page-hero h1 { font-size: 25px; }
 }
+
+/* ==========================================================================
+   Попап заявки (открывается по кнопкам «Обсудить задачу»,
+   «Получить HR-диагностику»)
+   ========================================================================== */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(9, 14, 48, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .35s var(--ease), visibility .35s;
+}
+.modal-overlay.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.modal-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 60px 120px -40px rgba(9, 14, 48, .6);
+  transform: translateY(24px) scale(.97);
+  transition: transform .4s var(--ease);
+}
+.modal-overlay.open .modal-dialog { transform: translateY(0) scale(1); }
+
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 2;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  transition: background .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease), transform .3s var(--ease);
+}
+.modal-close:hover {
+  background: var(--accent);
+  color: var(--white);
+  border-color: var(--accent);
+  transform: rotate(90deg);
+}
+
+.modal-form.request-form {
+  padding: 48px 44px 40px;
+  border-radius: var(--radius-lg);
+}
+
+@media (max-width: 640px) {
+  .modal-overlay { padding: 16px; }
+  .modal-form.request-form { padding: 36px 24px 32px; }
+  .modal-close { top: 14px; right: 14px; width: 34px; height: 34px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal-overlay,
+  .modal-dialog,
+  .modal-close { transition: none !important; }
+}

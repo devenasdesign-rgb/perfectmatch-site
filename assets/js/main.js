@@ -186,36 +186,40 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  /* Request form */
-  const requestForm = document.querySelector(".request-form");
-  if (requestForm) {
-    const nameField = requestForm.querySelector("#rf-name").closest(".field");
-    const contactField = requestForm.querySelector("#rf-contact").closest(".field");
-    const consent = requestForm.querySelector('input[name="consent"]');
-    const success = requestForm.querySelector(".rf-success");
+  /* Request form(s) — на главной есть форма прямо в блоке, и такая же
+     форма живёт в попапе на всех страницах, поэтому логика вынесена
+     в функцию и работает через name-атрибуты, а не id (id должны быть
+     уникальны, а форм на странице может быть несколько). */
+  const bindRequestForm = (form) => {
+    const nameInput = form.querySelector('input[name="name"]');
+    const contactInput = form.querySelector('input[name="contact"]');
+    const nameField = nameInput.closest(".field");
+    const contactField = contactInput.closest(".field");
+    const consent = form.querySelector('input[name="consent"]');
+    const success = form.querySelector(".rf-success");
 
     const clearOnInput = (field) => {
       field.querySelector("input").addEventListener("input", () => field.classList.remove("invalid"));
     };
     clearOnInput(nameField);
     clearOnInput(contactField);
-    consent.addEventListener("change", () => requestForm.classList.remove("consent-invalid"));
+    consent.addEventListener("change", () => form.classList.remove("consent-invalid"));
 
-    requestForm.addEventListener("submit", (e) => {
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
-      const name = requestForm.querySelector("#rf-name").value.trim();
-      const contact = requestForm.querySelector("#rf-contact").value.trim();
+      const name = nameInput.value.trim();
+      const contact = contactInput.value.trim();
 
       let ok = true;
       nameField.classList.toggle("invalid", !name);
       if (!name) ok = false;
       contactField.classList.toggle("invalid", !contact);
       if (!contact) ok = false;
-      requestForm.classList.toggle("consent-invalid", !consent.checked);
+      form.classList.toggle("consent-invalid", !consent.checked);
       if (!consent.checked) ok = false;
 
       if (!ok) {
-        requestForm.querySelector(".field.invalid input, input[name='consent']")?.focus();
+        form.querySelector(".field.invalid input, input[name='consent']")?.focus();
         return;
       }
 
@@ -230,6 +234,48 @@ document.addEventListener("DOMContentLoaded", () => {
         encodeURIComponent(body);
 
       success.hidden = false;
+    });
+  };
+  document.querySelectorAll(".request-form").forEach(bindRequestForm);
+
+  /* Попап заявки — открывается по кнопкам «Обсудить задачу»
+     и «Получить HR-диагностику» вместо перехода к якорю #contact. */
+  const modal = document.getElementById("requestModal");
+  if (modal) {
+    const closeBtn = modal.querySelector(".modal-close");
+    let lastFocused = null;
+
+    const openModal = () => {
+      lastFocused = document.activeElement;
+      modal.classList.add("open");
+      document.body.style.overflow = "hidden";
+      modal.querySelector('input[name="name"]')?.focus({ preventScroll: true });
+    };
+
+    const closeModal = () => {
+      modal.classList.remove("open");
+      document.body.style.overflow = "";
+      if (lastFocused && typeof lastFocused.focus === "function") {
+        lastFocused.focus({ preventScroll: true });
+      }
+    };
+
+    closeBtn.addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
+    });
+
+    const triggerLabels = ["обсудить задачу", "получить hr-диагностику"];
+    document.querySelectorAll("a.btn, button.btn").forEach((el) => {
+      if (modal.contains(el)) return;
+      if (!triggerLabels.includes(el.textContent.trim().toLowerCase())) return;
+      el.addEventListener("click", (e) => {
+        e.preventDefault();
+        openModal();
+      });
     });
   }
 

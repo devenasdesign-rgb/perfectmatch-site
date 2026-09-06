@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=19">
+<link rel="stylesheet" href="assets/css/style.css?v=20">
 </head>
 <body>
 
@@ -33,6 +33,52 @@
 <path id="Vector_11" d="M211.356 31.7266C210.215 31.7266 209.249 31.512 208.458 31.0827C207.668 30.6437 207.068 30.0632 206.658 29.3412C206.258 28.6193 206.058 27.8241 206.058 26.9558C206.058 26.1948 206.185 25.5119 206.439 24.907C206.693 24.2924 207.083 23.7655 207.61 23.3265C208.136 22.8777 208.819 22.5118 209.658 22.2289C210.293 22.024 211.034 21.8387 211.883 21.6728C212.741 21.507 213.668 21.3557 214.663 21.2191C215.668 21.0728 216.717 20.9167 217.81 20.7508L216.551 21.4679C216.561 20.3752 216.317 19.5703 215.819 19.0533C215.322 18.5362 214.483 18.2776 213.302 18.2776C212.59 18.2776 211.902 18.4435 211.239 18.7752C210.576 19.1069 210.112 19.6777 209.849 20.4874L206.629 19.4777C207.019 18.141 207.761 17.0679 208.854 16.2581C209.956 15.4483 211.439 15.0434 213.302 15.0434C214.707 15.0434 215.941 15.2727 217.005 15.7313C218.078 16.1898 218.873 16.941 219.39 17.9849C219.673 18.5411 219.844 19.1118 219.902 19.6972C219.961 20.2728 219.99 20.9021 219.99 21.585V31.2876H216.902V27.8631L217.415 28.4192C216.702 29.5607 215.868 30.3998 214.912 30.9364C213.966 31.4632 212.78 31.7266 211.356 31.7266ZM212.058 28.9168C212.858 28.9168 213.541 28.7754 214.107 28.4924C214.673 28.2095 215.122 27.8631 215.454 27.4534C215.795 27.0436 216.024 26.6582 216.141 26.2973C216.327 25.8485 216.429 25.3363 216.449 24.7607C216.478 24.1753 216.493 23.7021 216.493 23.3411L217.576 23.6631C216.512 23.8289 215.6 23.9753 214.839 24.1021C214.078 24.2289 213.424 24.3509 212.878 24.468C212.332 24.5753 211.849 24.6972 211.429 24.8338C211.019 24.9802 210.673 25.1509 210.39 25.346C210.107 25.5412 209.888 25.7655 209.732 26.0192C209.585 26.2729 209.512 26.5704 209.512 26.9119C209.512 27.3022 209.61 27.6485 209.805 27.9509C210 28.2436 210.283 28.4778 210.654 28.6534C211.034 28.829 211.502 28.9168 212.058 28.9168Z" fill="#3157FF"/>
 <path id="Vector_12" d="M181.898 31.2877V10.2142H185.074L192.361 25.1413L199.649 10.2142H202.825V31.2877H199.532V17.7802L193.064 31.2877H191.659L185.205 17.7802V31.2877H181.898Z" fill="#3157FF"/>
 </svg>
+</div>
+<div class="modal-overlay" id="requestModal">
+  <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalFormTitle">
+    <button type="button" class="modal-close" aria-label="Закрыть">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 3L13 13M13 3L3 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+
+    <form class="request-form modal-form" novalidate>
+      <div class="rf-head">
+        <h3 id="modalFormTitle">Оставить заявку</h3>
+        <p>Заполним пару полей — остальное обсудим при разговоре.</p>
+      </div>
+
+      <div class="field">
+        <label for="modal-rf-name">Ваше имя</label>
+        <input type="text" id="modal-rf-name" name="name" placeholder="Как к вам обращаться" autocomplete="name" required>
+        <span class="field-error">Укажите, как к вам обращаться</span>
+      </div>
+
+      <div class="field">
+        <label for="modal-rf-contact">Телефон или e-mail</label>
+        <input type="text" id="modal-rf-contact" name="contact" placeholder="+7 (900) 000-00-00 или mail@company.ru" autocomplete="tel" required>
+        <span class="field-error">Оставьте телефон или почту для связи</span>
+      </div>
+
+      <label class="field-check">
+        <input type="checkbox" name="consent" required>
+        <span class="box"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5L5.5 10.5L11.5 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="check-text">Я даю согласие на обработку персональных данных и соглашаюсь с политикой конфиденциальности</span>
+      </label>
+      <span class="field-error consent-error">Нужно согласие на обработку данных</span>
+
+      <button type="submit" class="btn btn-primary btn-lg rf-submit">
+        Отправить заявку
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+      <p class="rf-note">Время ответа в среднем около одного часа</p>
+
+      <div class="rf-success" hidden>
+        <div class="rf-success-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <strong>Заявка сформирована</strong>
+        <p>Мы открыли письмо в вашей почтовой программе — отправьте его, и мы ответим в течение часа.</p>
+      </div>
+    </form>
+  </div>
 </div>
 
 <header class="site-header">
@@ -284,6 +330,6 @@
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=9"></script>
+<script src="assets/js/main.js?v=10"></script>
 </body>
 </html>
