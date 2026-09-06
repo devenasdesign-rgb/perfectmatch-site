@@ -1488,7 +1488,7 @@ main > section:last-child { margin-bottom: var(--block-gap); }
 }
 
 @media (max-width: 640px) {
-  .program-card { padding: 28px 24px 24px; }
+  .program-card { padding: 28px 16px 16px; }
   .program-num { font-size: 46px; top: 18px; right: 22px; }
   .program-top h3 { padding-right: 56px; }
   .program-desc, .program-list li, .final-cta-note { font-size: 16px; }
@@ -1964,8 +1964,8 @@ a:hover .arrow-circle svg { transform: translateX(3px); }
   .hero-mark-bg { width: 85%; max-width: calc(85% - var(--side-pad)); right: var(--side-pad); opacity: .55; }
   .diagnostic, .founder-panel { border-radius: var(--radius-md); }
   .diagnostic { padding: 40px 24px; }
-  /* фото должно вплотную (10px) стоять внутри чёрной плашки */
-  .founder-panel { padding: 10px; }
+  /* фото вплотную (10px) сверху, по бокам и снизу — 16px, как у карточек направлений */
+  .founder-panel { padding: 10px 16px 16px; }
   .founder-grid { gap: 24px; }
   .founder-bio { grid-template-columns: 1fr; }
   .founder-facts { flex-direction: column; }
