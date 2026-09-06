@@ -875,6 +875,9 @@ main > section:last-child { margin-bottom: var(--block-gap); }
   display: flex;
   align-items: flex-end;
   padding: 32px;
+  /* без этого текст в .tag задаёт grid-колонке минимальную ширину по
+     min-content и фото вылезает за пределы чёрной плашки на мобильном */
+  min-width: 0;
 }
 
 .founder-portrait img {
@@ -1961,7 +1964,11 @@ a:hover .arrow-circle svg { transform: translateX(3px); }
   .hero-mark-bg { width: 85%; max-width: calc(85% - var(--side-pad)); right: var(--side-pad); opacity: .55; }
   .diagnostic, .founder-panel { border-radius: var(--radius-md); }
   .diagnostic { padding: 40px 24px; }
-  .founder-panel { padding: 40px 24px; }
+  /* фото должно вплотную (10px) стоять внутри чёрной плашки */
+  .founder-panel { padding: 10px; }
+  .founder-grid { gap: 24px; }
+  .founder-bio { grid-template-columns: 1fr; }
+  .founder-facts { flex-direction: column; }
   .final-cta-inner { padding: 48px 24px; }
   .stats-logos { justify-content: flex-start; }
   .footer-grid { grid-template-columns: 1fr; }
