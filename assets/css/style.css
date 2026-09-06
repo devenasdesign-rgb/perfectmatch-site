@@ -282,6 +282,7 @@ main > section:last-child { margin-bottom: var(--block-gap); }
 }
 .logo-lockup { height: 42px; width: auto; display: block; }
 .site-header .logo-lockup { height: 38px; }
+.logo-mark-only { display: none; width: auto; }
 
 .main-nav {
   display: flex;
@@ -345,7 +346,9 @@ main > section:last-child { margin-bottom: var(--block-gap); }
 
 @media (max-width: 640px) {
   :root { --header-h: 72px; }
-  .site-header .logo-lockup { height: 30px; }
+  /* в шапке остаётся только знак логотипа */
+  .site-header .logo-lockup { display: none; }
+  .site-header .logo-mark-only { display: block; height: 32px; }
   .header-cta .btn { display: none; }
 }
 
@@ -1961,9 +1964,68 @@ a:hover .arrow-circle svg { transform: translateX(3px); }
   .diagnostic, .founder-panel { border-radius: var(--radius-md); }
   .diagnostic { padding: 40px 24px; }
   .founder-panel { padding: 40px 24px; }
-  .founder-copy h2 { font-size: 30px; max-width: none; }
   .final-cta-inner { padding: 48px 24px; }
   .stats-logos { justify-content: flex-start; }
   .footer-grid { grid-template-columns: 1fr; }
   .price-card.featured { order: -1; }
+
+  /* --- мобильная типографика ---
+     У всех clamp() нижний предел был десктопным, поэтому заголовки
+     не уменьшались ниже 30–43px и занимали весь экран. */
+  .hero h1 { font-size: 32px; letter-spacing: -0.02em; }
+  .hero-sub { font-size: 16px; }
+  .question-label { font-size: 14px; }
+
+  .section-head { margin-bottom: 32px; }
+  .section-head h2 { font-size: 26px; }
+  .section-head h2::after { bottom: -10px; height: 2px; }
+  .section-head p { font-size: 16px; }
+
+  .page-hero h1 { font-size: 28px; }
+  .page-hero .lead,
+  .page-hero .service-tag { font-size: 16px; }
+
+  .diagnostic-copy h2 { font-size: 24px; }
+  .diagnostic-copy .lead,
+  .diagnostic-copy p.desc,
+  .diag-row p { font-size: 16px; }
+  .diag-row .num { font-size: 20px; width: 34px; }
+
+  .founder-copy h2 { font-size: 26px; max-width: none; }
+  .founder-bio p,
+  .founder-copy .role { font-size: 16px; }
+
+  /* на узком экране 2 колонки не помещались — карточки обрезало */
+  .solutions-grid { grid-template-columns: 1fr; border-radius: var(--radius-md); }
+  .solution-item { padding: 24px 22px; }
+  .solution-item h4,
+  .solution-item p { font-size: 16px; }
+
+  .scenario-card { padding: 24px 22px 26px; }
+  .scenario-card h3 { font-size: 20px; }
+  .scenario-card p { font-size: 16px; }
+  .scenario-num { font-size: 36px; }
+  .scenario-foot { margin-top: 22px; }
+  .arrow-circle { width: 42px; height: 42px; }
+
+  .final-cta-inner h2 { font-size: 26px; }
+  .final-cta-inner p { font-size: 16px; }
+
+  .request-aside h2 { font-size: 24px; }
+  .rf-head h3 { font-size: 22px; }
+
+  .testi-quote p { font-size: 18px; }
+  .why-card h4,
+  .feature-card h3 { font-size: 18px; }
+  .price-amount { font-size: 24px; }
+  .check-item { font-size: 16px; }
+}
+
+/* совсем узкие экраны */
+@media (max-width: 380px) {
+  .hero h1 { font-size: 28px; }
+  .page-hero h1 { font-size: 25px; }
+  .section-head h2,
+  .founder-copy h2,
+  .final-cta-inner h2 { font-size: 23px; }
 }
