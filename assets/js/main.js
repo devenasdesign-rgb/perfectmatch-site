@@ -136,15 +136,25 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
       },
-      { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+      /* threshold в долях элемента не годится: блок с текстом политики
+         высотой ~9000px никогда не покажет 15% себя в окне 900px, и такой
+         блок оставался невидимым навсегда. Считаем появлением любое
+         пересечение, а нужную задержку даёт отрицательный rootMargin. */
+      { threshold: 0, rootMargin: "0px 0px -80px 0px" }
     );
     revealEls.forEach((el) => io.observe(el));
 
-    /* Страховка: если наблюдатель по какой-то причине не отработал
-       (фоновая вкладка, отключённая анимация кадров) — показываем контент. */
+    /* Страховка на случай, если наблюдатель не отработал (фоновая вкладка,
+       остановленная отрисовка). Проверяем каждый элемент отдельно: раньше
+       условие смотрело, показался ли хоть один, и не спасало страницу,
+       где часть блоков уже видна, а один застрял невидимым. */
     const forceReveal = () => revealEls.forEach((el) => el.classList.add("in-view"));
     setTimeout(() => {
-      if (!document.querySelector(".reveal.in-view")) forceReveal();
+      revealEls.forEach((el) => {
+        if (el.classList.contains("in-view")) return;
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) el.classList.add("in-view");
+      });
     }, 3000);
     window.addEventListener("beforeprint", forceReveal);
   } else {
