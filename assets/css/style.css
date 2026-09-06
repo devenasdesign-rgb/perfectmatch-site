@@ -91,6 +91,18 @@
 /* блокировка прокрутки, пока висит прелоадер (класс ставит только JS) */
 .is-loading, .is-loading body { overflow: hidden; }
 
+/* Пока висит прелоадер, анимация появления первого экрана поставлена
+   на паузу в самом начале — иначе она успевает полностью отыграть
+   ПОКА экран закрыт прелоадером, и после его исчезновения зритель
+   видит уже статичный, полностью показавшийся хедер. Как только
+   прелоадер начинает уходить, анимация запускается и доигрывается
+   поверх затухающего прелоадера. */
+.is-loading .hero-content,
+.is-loading .hero-bottom > *,
+.is-loading .hero-mark-bg {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .preloader-logo { animation: none; }
   .pl-bar { animation: none; }
