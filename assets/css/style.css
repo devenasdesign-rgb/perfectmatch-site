@@ -1763,22 +1763,111 @@ a:hover .arrow-circle svg { transform: translateX(3px); }
 }
 .page-hero .btn-row { margin-top: 32px; display: flex; gap: 16px; flex-wrap: wrap; }
 
-/* знак логотипа справа — уравновешивает пустое правое поле */
-.page-hero-mark {
-  position: absolute;
-  top: 50%;
-  right: var(--side-pad);
-  transform: translateY(-50%);
-  height: min(88%, 480px);
-  width: auto;
-  max-width: calc(42% - var(--side-pad));
-  z-index: 0;
-  pointer-events: none;
+/* две колонки: слева позиционирование, справа карточка с офером */
+.page-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  gap: 56px;
+  align-items: start;
 }
-.page-hero-mark .wave-bar {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: wave-3d 3.4s ease-in-out infinite;
+
+/* карточка офера — конкретика прямо на первом экране */
+.offer-card {
+  position: relative;
+  overflow: hidden;
+  padding: 34px;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(var(--white), var(--white)) padding-box,
+    linear-gradient(115deg, var(--accent) 0%, #9DB2FF 25%, var(--accent) 50%, #9DB2FF 75%, var(--accent) 100%) border-box;
+  background-size: 100% 100%, 300% 100%;
+  animation: card-border-flow 10s linear infinite;
+  box-shadow: 0 34px 70px -44px rgba(49, 87, 255, .5);
+}
+.offer-card > * { position: relative; z-index: 1; }
+
+.offer-row {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+.offer-row:first-child { padding-top: 0; }
+.offer-row:last-of-type { border-bottom: none; padding-bottom: 0; }
+
+.offer-label {
+  display: block;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.offer-value {
+  display: block;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 1.35;
+  color: var(--ink);
+}
+.offer-price {
+  font-size: 30px;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+}
+.offer-price span {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0;
+}
+
+.offer-cta {
+  margin-top: 26px;
+  width: 100%;
+  justify-content: center;
+  padding: 16px 24px;
+}
+
+/* полоса доверия под первым экраном */
+.hero-trust {
+  margin-top: 56px;
+  padding-top: 30px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 20px 40px;
+  flex-wrap: wrap;
+}
+.hero-trust-label {
+  font-size: 16px;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+.hero-trust-logos {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.hero-trust-logos img {
+  height: 26px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(1) opacity(0.5);
+  transition: filter .25s var(--ease);
+}
+.hero-trust-logos img:hover { filter: grayscale(0) opacity(1); }
+/* «высокие» логотипы (знак над надписью) при общей высоте выглядят мелко —
+   даём им больше высоты, чтобы оптический вес строки был ровным */
+.hero-trust-logos img[data-tall] { height: 38px; }
+
+@media (max-width: 980px) {
+  .page-hero-grid { grid-template-columns: 1fr; gap: 36px; }
+  .offer-card { max-width: 560px; }
+  .hero-trust { margin-top: 40px; }
 }
 
 /* описание, разбитое на буллеты */
@@ -1809,12 +1898,8 @@ a:hover .arrow-circle svg { transform: translateX(3px); }
   border-radius: 1px;
 }
 
-@media (max-width: 980px) {
-  .page-hero-mark { display: none; }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .page-hero-mark .wave-bar { animation: none; }
+  .offer-card { animation: none; }
 }
 
 .breadcrumb {
@@ -2163,6 +2248,16 @@ a:hover .arrow-circle svg { transform: translateX(3px); }
   .page-hero .service-tag { font-size: 16px; }
   .page-hero p.lead-main { font-size: 18px; }
   .page-hero .hero-points li { font-size: 16px; padding-left: 26px; }
+  .offer-card { padding: 24px 20px; max-width: none; }
+  .offer-label { font-size: 12px; }
+  .offer-value { font-size: 17px; }
+  .offer-price { font-size: 26px; }
+  .offer-row { padding: 15px 0; }
+  .hero-trust { gap: 16px 28px; padding-top: 24px; }
+  .hero-trust-logos { gap: 26px; }
+  .hero-trust-logos img { height: 22px; }
+  .hero-trust-logos img[data-tall] { height: 32px; }
+  .hero-trust-label { font-size: 14px; }
 
   .diagnostic-copy h2 { font-size: 26px; }
   .diagnostic-copy .lead,
