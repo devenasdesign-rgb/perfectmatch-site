@@ -1987,7 +1987,7 @@ a:hover .arrow-circle svg { transform: translateX(3px); }
   .eyebrow { font-size: 12px; }
 
   .section-head { margin-bottom: 32px; }
-  .section-head h2 { font-size: 20px; }
+  .section-head h2 { font-size: 26px; }
   .section-head h2::after { bottom: -8px; height: 2px; }
   .section-head p { font-size: 16px; }
 
@@ -1995,7 +1995,7 @@ a:hover .arrow-circle svg { transform: translateX(3px); }
   .page-hero .lead,
   .page-hero .service-tag { font-size: 16px; }
 
-  .diagnostic-copy h2 { font-size: 20px; }
+  .diagnostic-copy h2 { font-size: 26px; }
   .diagnostic-copy .lead,
   .diagnostic-copy p.desc,
   .diag-row p { font-size: 16px; }
@@ -2008,7 +2008,7 @@ a:hover .arrow-circle svg { transform: translateX(3px); }
     width: auto;
   }
 
-  .founder-copy h2 { font-size: 20px; max-width: none; }
+  .founder-copy h2 { font-size: 26px; max-width: none; }
   .founder-bio p,
   .founder-copy .role { font-size: 16px; }
 
@@ -2019,7 +2019,7 @@ a:hover .arrow-circle svg { transform: translateX(3px); }
   .solution-item p { font-size: 16px; }
 
   .scenario-card { padding: 24px 22px 26px; }
-  .scenario-card h3 { font-size: 20px; }
+  .scenario-card h3 { font-size: 26px; }
   .scenario-card p { font-size: 16px; }
   .scenario-num { font-size: 36px; }
   .scenario-foot { margin-top: 22px; }
@@ -2032,10 +2032,10 @@ a:hover .arrow-circle svg { transform: translateX(3px); }
   .stat-num { font-size: 32px; }
   .stat-label { font-size: 16px; margin-top: 0; }
 
-  .final-cta-inner h2 { font-size: 20px; }
+  .final-cta-inner h2 { font-size: 26px; }
   .final-cta-inner p { font-size: 16px; }
 
-  .request-aside h2 { font-size: 20px; }
+  .request-aside h2 { font-size: 26px; }
   .rf-head h3 { font-size: 22px; }
 
   .testi-quote p { font-size: 18px; }
@@ -2046,7 +2046,7 @@ a:hover .arrow-circle svg { transform: translateX(3px); }
 }
 
 @media (max-width: 640px) {
-  .program-top h3 { font-size: 20px; }
+  .program-top h3 { font-size: 26px; }
 }
 
 /* совсем узкие экраны */
