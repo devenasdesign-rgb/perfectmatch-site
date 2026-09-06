@@ -382,7 +382,19 @@ main > section:last-child { margin-bottom: var(--block-gap); }
   font-size: 22px;
   border-bottom: 1px solid var(--border);
 }
-.mobile-nav .btn { margin-top: 28px; width: 100%; justify-content: center; }
+.mobile-nav .btn {
+  /* .mobile-nav a задаёт display:block/padding/border-bottom всем ссылкам
+     в меню и по специфичности перебивает .btn — из-за этого пропадали
+     flex-выравнивание и стрелка съезжала влево */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 28px;
+  width: 100%;
+  padding: 17px 24px;
+  border-bottom: none;
+}
 
 /* ==========================================================================
    Hero
