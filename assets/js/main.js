@@ -274,7 +274,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
     });
 
-    const triggerLabels = ["обсудить задачу", "получить hr-диагностику"];
+    const triggerLabels = ["обсудить задачу", "получить hr-диагностику", "получить расчёт"];
     document.querySelectorAll("a.btn, button.btn").forEach((el) => {
       if (modal.contains(el)) return;
       if (!triggerLabels.includes(el.textContent.trim().toLowerCase())) return;
