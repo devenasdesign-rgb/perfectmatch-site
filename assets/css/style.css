@@ -1976,8 +1976,8 @@ a:hover .arrow-circle svg { transform: translateX(3px); }
   .hero-mark-bg { width: 85%; max-width: calc(85% - var(--side-pad)); right: var(--side-pad); opacity: .55; }
   .diagnostic, .founder-panel { border-radius: var(--radius-md); }
   .diagnostic { padding: 40px 24px; }
-  /* фото вплотную (10px) сверху, по бокам и снизу — 16px, как у карточек направлений */
-  .founder-panel { padding: 10px 16px 16px; }
+  /* отступ 16px со всех сторон — как у карточек направлений */
+  .founder-panel { padding: 16px; }
   .founder-grid { gap: 24px; }
   .founder-bio { grid-template-columns: 1fr; }
   .founder-facts { flex-direction: column; }
