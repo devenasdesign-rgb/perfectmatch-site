@@ -271,19 +271,11 @@ main > section:last-child { margin-bottom: var(--block-gap); }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(247, 248, 250, 0.92);
+  background: rgba(247, 248, 250, 0.82);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid transparent;
   transition: border-color .3s var(--ease);
-  /* Заливка всего, что выше шапки.
-     Во встроенных браузерах (Telegram и подобные) панель приложения
-     полупрозрачная, страница рисуется под ней, и над прилипшей шапкой
-     оставалась полоса с видимым прокручивающимся контентом.
-     Тень рисуется как часть самой шапки и не может быть обрезана
-     ни backdrop-filter, ни overflow родителя — в отличие от вложенного
-     блока, который WebKit срезает по границам элемента с backdrop-filter. */
-  box-shadow: 0 -400px 0 0 var(--bg);
 }
 .site-header.scrolled { border-bottom-color: var(--border); }
 
@@ -362,16 +354,6 @@ main > section:last-child { margin-bottom: var(--block-gap); }
   .main-nav { display: none; }
   .header-cta .btn-outline span.btn-label-full { display: none; }
   .nav-toggle { display: flex; }
-}
-
-@media (max-width: 960px) {
-  /* во встроенных браузерах размытие фона работает нестабильно и обрезает
-     содержимое шапки — на мобильных делаем её просто непрозрачной */
-  .site-header {
-    background: var(--bg);
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
 }
 
 @media (max-width: 640px) {
@@ -3175,18 +3157,4 @@ a:hover .arrow-circle svg { transform: translateX(3px); }
   color: var(--accent);
   text-decoration: underline;
   text-underline-offset: 2px;
-}
-
-/* Заглушка полосы над шапкой во встроенных браузерах.
-   Высоту выставляет JS по реальному положению шапки; в обычных
-   браузерах она равна нулю и ничего не видно. */
-.header-filler {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 0;
-  background: var(--bg);
-  z-index: 99;
-  pointer-events: none;
 }

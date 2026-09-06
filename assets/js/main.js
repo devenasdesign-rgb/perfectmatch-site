@@ -37,36 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", onScroll, { passive: true });
   }
 
-  /* Полоса над шапкой во встроенных браузерах (Telegram и подобные).
-     Такие браузеры сдвигают точку прилипания вниз на высоту своей
-     полупрозрачной панели, и над шапкой видно прокручивающийся контент.
-     Высоту этого отступа заранее не знает никто, поэтому меряем реальное
-     положение шапки и закрываем полосу фиксированной заглушкой.
-     Это обычный div: его, в отличие от вложенного блока или тени,
-     не может обрезать ни backdrop-filter, ни overflow родителя. */
-  if (header) {
-    const filler = document.createElement("div");
-    filler.className = "header-filler";
-    document.body.appendChild(filler);
-
-    let fillerTicking = false;
-    const syncFiller = () => {
-      const gap = header.getBoundingClientRect().top;
-      filler.style.height = gap > 0 ? gap + "px" : "0px";
-      fillerTicking = false;
-    };
-    const scheduleFiller = () => {
-      if (!fillerTicking) {
-        fillerTicking = true;
-        requestAnimationFrame(syncFiller);
-      }
-    };
-    syncFiller();
-    window.addEventListener("scroll", scheduleFiller, { passive: true });
-    window.addEventListener("resize", scheduleFiller);
-    window.addEventListener("orientationchange", scheduleFiller);
-  }
-
   /* Mobile nav toggle */
   const navToggle = document.querySelector(".nav-toggle");
   const mobileNav = document.querySelector(".mobile-nav");
