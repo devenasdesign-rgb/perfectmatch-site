@@ -1990,6 +1990,13 @@ a:hover .arrow-circle svg { transform: translateX(3px); }
   .diagnostic-copy p.desc,
   .diag-row p { font-size: 16px; }
   .diag-row .num { font-size: 20px; width: 34px; }
+  /* btn-lg на мобильном был громоздким (17px/30px) и растягивался почти
+     на всю ширину блока — делаем компактнее и по размеру контента */
+  .diagnostic-copy .btn.btn-lg {
+    padding: 13px 22px;
+    font-size: 15px;
+    width: auto;
+  }
 
   .founder-copy h2 { font-size: 26px; max-width: none; }
   .founder-bio p,
