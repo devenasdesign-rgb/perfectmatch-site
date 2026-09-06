@@ -1841,42 +1841,113 @@ a:hover .arrow-circle svg { transform: translateX(3px); }
 }
 
 .feature-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 36px;
-  transition: border-color .25s var(--ease), transform .25s var(--ease);
+  position: relative;
+  overflow: hidden;
+  padding: 32px 32px 30px;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(var(--white), var(--white)) padding-box,
+    linear-gradient(115deg, var(--accent-soft) 0%, #D9E0FF 50%, var(--accent-soft) 100%) border-box;
+  background-size: 100% 100%, 200% 100%;
+  transition: transform .45s var(--ease), box-shadow .45s var(--ease);
 }
-.feature-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+.feature-card > * { position: relative; z-index: 1; }
 
-.feature-card h3 {
-  font-size: 20px;
+/* подсветка изнутри при наведении */
+.feature-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 90% at 12% 0%, rgba(49, 87, 255, .10), transparent 60%);
+  opacity: 0;
+  transition: opacity .4s var(--ease);
+  pointer-events: none;
+  z-index: 0;
+}
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 60px -30px rgba(49, 87, 255, .45);
+  background-image:
+    linear-gradient(var(--white), var(--white)),
+    linear-gradient(115deg, var(--accent) 0%, #9DB2FF 25%, var(--accent) 50%, #9DB2FF 75%, var(--accent) 100%);
+  background-size: 100% 100%, 300% 100%;
+  animation: card-border-flow 3.5s linear infinite;
+}
+.feature-card:hover::after { opacity: 1; }
+
+/* крупный номер в углу */
+.feature-num {
+  position: absolute;
+  top: 20px;
+  right: 26px;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 1;
+  color: var(--accent);
+  opacity: .12;
+  transition: opacity .4s var(--ease), transform .5s var(--ease);
+}
+.feature-card:hover .feature-num { opacity: .22; transform: translateY(-3px); }
+
+.feature-head {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
+  padding-right: 60px;
 }
-.feature-card h3::before {
-  content: "";
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--accent);
+.feature-icon {
+  width: 44px;
+  height: 44px;
   flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  background: var(--bg-alt);
+  border: 1px solid #DDE3FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .3s var(--ease), border-color .3s var(--ease), transform .4s var(--ease);
+}
+.feature-icon svg { stroke: var(--accent); }
+.feature-card:hover .feature-icon {
+  border-color: var(--accent);
+  transform: scale(1.06) rotate(-4deg);
 }
 
-.feature-card ul { margin-top: 18px; display: flex; flex-direction: column; gap: 10px; }
+.feature-card h3 { font-size: 22px; }
+
+.feature-card ul {
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 .feature-card li {
   font-size: 18px;
-  color: var(--muted);
-  padding-left: 20px;
+  color: var(--ink-soft);
+  padding-left: 30px;
   position: relative;
 }
+/* галочка вместо серого квадратика — как в карточках направлений */
 .feature-card li::before {
   content: "";
   position: absolute;
-  left: 0; top: 9px;
-  width: 6px; height: 6px;
+  left: 0;
+  top: 9px;
+  width: 16px;
+  height: 8px;
+  border-left: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  transform: rotate(-45deg);
   border-radius: 1px;
-  background: var(--border);
+  background: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feature-card:hover { animation: none; }
 }
 
 /* ==========================================================================
@@ -2139,6 +2210,11 @@ a:hover .arrow-circle svg { transform: translateX(3px); }
   .testi-quote p { font-size: 18px; }
   .why-card h4,
   .feature-card h3 { font-size: 18px; }
+  .feature-card { padding: 24px 20px 22px; }
+  .feature-num { font-size: 38px; top: 16px; right: 18px; }
+  .feature-head { gap: 12px; padding-right: 48px; }
+  .feature-icon { width: 38px; height: 38px; }
+  .feature-card li { font-size: 16px; padding-left: 26px; }
   .price-amount { font-size: 24px; }
   .check-item { font-size: 16px; }
 }
