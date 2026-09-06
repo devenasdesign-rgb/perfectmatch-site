@@ -276,24 +276,16 @@ main > section:last-child { margin-bottom: var(--block-gap); }
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid transparent;
   transition: border-color .3s var(--ease);
+  /* Заливка всего, что выше шапки.
+     Во встроенных браузерах (Telegram и подобные) панель приложения
+     полупрозрачная, страница рисуется под ней, и над прилипшей шапкой
+     оставалась полоса с видимым прокручивающимся контентом.
+     Тень рисуется как часть самой шапки и не может быть обрезана
+     ни backdrop-filter, ни overflow родителя — в отличие от вложенного
+     блока, который WebKit срезает по границам элемента с backdrop-filter. */
+  box-shadow: 0 -400px 0 0 var(--bg);
 }
 .site-header.scrolled { border-bottom-color: var(--border); }
-
-/* Заглушка над шапкой.
-   Во встроенных браузерах (Telegram, Instagram и т.п.) панель приложения
-   полупрозрачная, а страница рисуется под ней — над прилипшей шапкой
-   оставалась полоса, сквозь которую было видно прокручивающийся контент.
-   Этот блок закрашивает всё, что выше шапки, цветом фона страницы. */
-.site-header::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 100%;
-  height: 240px;
-  background: var(--bg);
-  pointer-events: none;
-}
 
 .site-header .container {
   display: flex;
@@ -370,6 +362,16 @@ main > section:last-child { margin-bottom: var(--block-gap); }
   .main-nav { display: none; }
   .header-cta .btn-outline span.btn-label-full { display: none; }
   .nav-toggle { display: flex; }
+}
+
+@media (max-width: 960px) {
+  /* во встроенных браузерах размытие фона работает нестабильно и обрезает
+     содержимое шапки — на мобильных делаем её просто непрозрачной */
+  .site-header {
+    background: var(--bg);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
 }
 
 @media (max-width: 640px) {
