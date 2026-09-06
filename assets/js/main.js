@@ -238,6 +238,12 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   document.querySelectorAll(".request-form").forEach(bindRequestForm);
 
+  /* Ссылка на политику лежит внутри <label> чекбокса — без этого клик по
+     ней заодно переключал бы согласие. */
+  document.querySelectorAll(".field-check .policy-link").forEach((link) => {
+    link.addEventListener("click", (e) => e.stopPropagation());
+  });
+
   /* Попап заявки — открывается по кнопкам «Обсудить задачу»
      и «Получить HR-диагностику» вместо перехода к якорю #contact. */
   const modal = document.getElementById("requestModal");
