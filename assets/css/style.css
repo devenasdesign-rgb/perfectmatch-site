@@ -753,8 +753,15 @@ main > section:last-child { margin-bottom: var(--block-gap); }
   display: flex;
   align-items: center;
   width: max-content;
-  gap: 69px;
   animation: ticker-scroll 28s linear infinite;
+}
+/* два одинаковых набора: у каждого свой внутренний зазор и такой же справа,
+   поэтому сдвиг ровно на -50% попадает в шов без рывка */
+.logos-ticker-set {
+  display: flex;
+  align-items: center;
+  gap: 69px;
+  padding-right: 69px;
 }
 
 .logos-ticker:hover .logos-ticker-track { animation-play-state: paused; }
@@ -774,8 +781,33 @@ main > section:last-child { margin-bottom: var(--block-gap); }
   to { transform: translateX(-50%); }
 }
 
+/* При включённом «Уменьшении движения» бегущую строку не гоняем — это
+   ровно тот случай, ради которого настройка и существует. Но просто
+   остановить её нельзя: лента шире экрана, и в окне остаются два логотипа
+   из десяти, остальные обрезаны. Поэтому раскладываем логотипы статично
+   в несколько рядов и прячем дублирующий набор. */
 @media (prefers-reduced-motion: reduce) {
-  .logos-ticker-track { animation: none; }
+  .logos-ticker-track,
+  .hero-ticker-track {
+    animation: none;
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 22px 40px;
+  }
+  .logos-ticker-set,
+  .hero-ticker-set {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-right: 0;
+    gap: 22px 40px;
+  }
+  .logos-ticker-set[aria-hidden="true"],
+  .hero-ticker-set[aria-hidden="true"] { display: none; }
+  .logos-ticker::before,
+  .logos-ticker::after,
+  .hero-ticker::before,
+  .hero-ticker::after { display: none; }
 }
 
 /* ==========================================================================
