@@ -3211,7 +3211,6 @@ a:hover .arrow-circle svg { transform: translateX(3px); }
   font-size: 16px;
   line-height: 1.5;
   color: var(--muted);
-  max-width: 620px;
 }
 .pricing-note .price-star {
   font-size: 16px;
@@ -3224,4 +3223,27 @@ a:hover .arrow-circle svg { transform: translateX(3px); }
 @media (max-width: 640px) {
   .pricing-note { margin-top: 22px; font-size: 14px; }
   .pricing-note .price-star { font-size: 14px; }
+}
+
+/* оговорка о цене внутри карточки на первом экране — одной строкой */
+.offer-note {
+  margin-top: 14px;
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+.offer-note .price-star {
+  font-size: 14px;
+  vertical-align: baseline;
+  line-height: inherit;
+  margin-left: 0;
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .offer-note { font-size: 13px; }
+  .offer-note .price-star { font-size: 13px; }
 }
