@@ -3190,3 +3190,38 @@ a:hover .arrow-circle svg { transform: translateX(3px); }
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+
+/* Звёздочка у цен и сноска под тарифами */
+.price-star {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: .55em;
+  vertical-align: super;
+  line-height: 0;
+  margin-left: 1px;
+}
+/* в тёмной карточке популярного тарифа акцент читается хуже */
+.price-card.featured .price-star { color: var(--accent-soft); }
+
+.pricing-note {
+  margin-top: 28px;
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: 620px;
+}
+.pricing-note .price-star {
+  font-size: 16px;
+  vertical-align: baseline;
+  line-height: inherit;
+  margin-left: 0;
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .pricing-note { margin-top: 22px; font-size: 14px; }
+  .pricing-note .price-star { font-size: 14px; }
+}
