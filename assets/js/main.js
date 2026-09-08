@@ -398,4 +398,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     render();
   }
+
+  /* Уведомление о cookie — показывается один раз, дальше сайт помнит выбор */
+  const cookieNotice = document.getElementById("cookieNotice");
+  if (cookieNotice) {
+    let accepted = false;
+    try {
+      accepted = localStorage.getItem("pm-cookie-accepted") === "1";
+    } catch (e) {}
+
+    if (!accepted) {
+      cookieNotice.hidden = false;
+      setTimeout(() => cookieNotice.classList.add("show"), 600);
+    }
+
+    cookieNotice.querySelector(".cookie-accept")?.addEventListener("click", () => {
+      cookieNotice.classList.remove("show");
+      try {
+        localStorage.setItem("pm-cookie-accepted", "1");
+      } catch (e) {}
+      setTimeout(() => { cookieNotice.hidden = true; }, 450);
+    });
+  }
 });
