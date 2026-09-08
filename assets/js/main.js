@@ -242,12 +242,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const submitBtn = form.querySelector(".rf-submit");
       const errorBox = form.querySelector(".rf-error");
+      /* Источник: для форм прямо на странице задан заранее (data-source
+         в HTML), для попапа — проставляется в момент открытия, по тексту
+         кнопки, которая его открыла. */
+      const source = form.dataset.source || "Форма на сайте";
 
       /* Запасной путь: пока адрес таблицы не вписан, заявка уходит
          письмом через почтовую программу — как было раньше. */
       const sendByMail = () => {
         const subject = "Заявка с сайта PerfectMatch";
-        const body = `Имя: ${name}\nКонтакт: ${contact}\n\nОтправлено с сайта perfectmatch.pro`;
+        const body = `Имя: ${name}\nКонтакт: ${contact}\nИсточник: ${source}\n\nОтправлено с сайта perfectmatch.pro`;
         window.location.href =
           "mailto:p.yasin@perfectmatch.pro?subject=" +
           encodeURIComponent(subject) +
@@ -274,6 +278,7 @@ document.addEventListener("DOMContentLoaded", () => {
         body: JSON.stringify({
           name: name,
           contact: contact,
+          source: source,
           page: location.pathname + location.search
         })
       })
@@ -306,8 +311,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeBtn = modal.querySelector(".modal-close");
     let lastFocused = null;
 
-    const openModal = () => {
+    const modalForm = modal.querySelector(".request-form");
+    const pageLabel = document.body.dataset.page || document.title.split(" — ")[0].split(" | ")[0];
+
+    const openModal = (buttonLabel) => {
       lastFocused = document.activeElement;
+      if (modalForm) {
+        modalForm.dataset.source = buttonLabel ? `«${buttonLabel}» — ${pageLabel}` : `Попап — ${pageLabel}`;
+      }
       modal.classList.add("open");
       document.body.style.overflow = "hidden";
       modal.querySelector('input[name="name"]')?.focus({ preventScroll: true });
@@ -335,7 +346,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!triggerLabels.includes(el.textContent.trim().toLowerCase())) return;
       el.addEventListener("click", (e) => {
         e.preventDefault();
-        openModal();
+        openModal(el.textContent.trim());
       });
     });
   }
