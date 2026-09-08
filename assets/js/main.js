@@ -28,6 +28,13 @@
   setTimeout(hide, 4500);
 })();
 
+/* Куда уходят заявки со всех форм сайта.
+   Пока строка пустая — форма открывает письмо в почтовой программе,
+   как и раньше. Вписать сюда адрес веб-приложения Google Apps Script
+   (вида https://script.google.com/macros/s/…/exec) — и заявки начнут
+   падать в Google Таблицу. Больше нигде ничего менять не нужно. */
+const REQUEST_ENDPOINT = "https://script.google.com/macros/s/AKfycbyCPKuVdIBWWcClgZeeGzsyZZK9dGukven0mGEHy2G3d35CAxc92UfVuthc68F1H3bT/exec";
+
 document.addEventListener("DOMContentLoaded", () => {
   /* Sticky header shadow */
   const header = document.querySelector(".site-header");
@@ -233,17 +240,55 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      /* Статический сайт — заявка уходит письмом.
-         Перед запуском заменить на реальный endpoint (CRM / Formspree / бэкенд). */
-      const subject = "Заявка с сайта PerfectMatch";
-      const body = `Имя: ${name}\nКонтакт: ${contact}\n\nОтправлено с сайта perfectmatch.pro`;
-      window.location.href =
-        "mailto:p.yasin@perfectmatch.pro?subject=" +
-        encodeURIComponent(subject) +
-        "&body=" +
-        encodeURIComponent(body);
+      const submitBtn = form.querySelector(".rf-submit");
+      const errorBox = form.querySelector(".rf-error");
 
-      success.hidden = false;
+      /* Запасной путь: пока адрес таблицы не вписан, заявка уходит
+         письмом через почтовую программу — как было раньше. */
+      const sendByMail = () => {
+        const subject = "Заявка с сайта PerfectMatch";
+        const body = `Имя: ${name}\nКонтакт: ${contact}\n\nОтправлено с сайта perfectmatch.pro`;
+        window.location.href =
+          "mailto:p.yasin@perfectmatch.pro?subject=" +
+          encodeURIComponent(subject) +
+          "&body=" +
+          encodeURIComponent(body);
+        success.hidden = false;
+      };
+
+      if (!REQUEST_ENDPOINT) {
+        sendByMail();
+        return;
+      }
+
+      if (errorBox) errorBox.hidden = true;
+      form.classList.add("sending");
+      if (submitBtn) submitBtn.disabled = true;
+
+      /* mode: "no-cors" — Google Apps Script не отдаёт заголовки CORS,
+         и без этого браузер отклонил бы ответ. Заявка при этом доходит:
+         запрос уходит, а провал сети мы всё равно поймаем в catch. */
+      fetch(REQUEST_ENDPOINT, {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify({
+          name: name,
+          contact: contact,
+          page: location.pathname + location.search
+        })
+      })
+        .then(() => {
+          form.reset();
+          success.hidden = false;
+        })
+        .catch(() => {
+          if (errorBox) errorBox.hidden = false;
+          else sendByMail();
+        })
+        .finally(() => {
+          form.classList.remove("sending");
+          if (submitBtn) submitBtn.disabled = false;
+        });
     });
   };
   document.querySelectorAll(".request-form").forEach(bindRequestForm);

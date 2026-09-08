@@ -3247,3 +3247,21 @@ a:hover .arrow-circle svg { transform: translateX(3px); }
   .offer-note { font-size: 13px; }
   .offer-note .price-star { font-size: 13px; }
 }
+
+/* Сообщение, если заявку не удалось отправить */
+.rf-error {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.45;
+  color: #D93A3A;
+}
+.rf-error[hidden] { display: none; }
+.rf-error a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+
+/* Пока заявка уходит */
+.request-form.sending .rf-submit { opacity: .7; pointer-events: none; }
+
+@media (max-width: 640px) {
+  .rf-error { font-size: 14px; }
+}
