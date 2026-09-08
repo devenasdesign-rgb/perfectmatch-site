@@ -161,7 +161,7 @@ main > section + section { margin-top: var(--block-gap); }
 main > section:last-child { margin-bottom: var(--block-gap); }
 
 .eyebrow {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 8px;
   font-family: var(--font-head);
