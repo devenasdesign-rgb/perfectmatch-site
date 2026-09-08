@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /policy.html
+Disallow: /consent.html
+
+Sitemap: https://perfectmatch.pro/sitemap.xml
