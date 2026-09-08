@@ -395,17 +395,6 @@ main > section:last-child { margin-bottom: var(--block-gap); }
   padding: 17px 24px;
   border-bottom: none;
 }
-.mobile-nav .mobile-nav-actions .lang-toggle {
-  /* .mobile-nav a задаёт display:block/padding/border-bottom всем ссылкам —
-     сбрасываем их, чтобы кнопка осталась квадратной */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  font-size: 15px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-}
 
 /* ==========================================================================
    Hero
@@ -3343,15 +3332,6 @@ a:hover .arrow-circle svg { transform: translateX(3px); }
 }
 .lang-toggle:hover { border-color: var(--accent); color: var(--accent); }
 
-.mobile-nav-actions {
-  display: flex;
-  align-items: stretch;
-  gap: 10px;
-  margin-top: 28px;
-}
-.mobile-nav-actions .lang-toggle { width: 56px; height: auto; }
-.mobile-nav-actions .btn { flex: 1; margin-top: 0; }
-
 @media (max-width: 640px) {
-  .header-cta .lang-toggle { display: none; }
+  .header-cta { gap: 10px; }
 }
