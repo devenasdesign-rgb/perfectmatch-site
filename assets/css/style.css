@@ -395,18 +395,16 @@ main > section:last-child { margin-bottom: var(--block-gap); }
   padding: 17px 24px;
   border-bottom: none;
 }
-.mobile-nav .lang-switch {
+.mobile-nav .mobile-nav-actions .lang-toggle {
+  /* .mobile-nav a задаёт display:block/padding/border-bottom всем ссылкам —
+     сбрасываем их, чтобы кнопка осталась квадратной */
   display: flex;
-  border-bottom: none;
-  padding: 4px 4px 0;
-}
-.mobile-nav .lang-switch a {
-  display: inline;
+  align-items: center;
+  justify-content: center;
   padding: 0;
-  font-family: var(--font-body);
-  font-weight: 600;
   font-size: 15px;
-  border-bottom: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
 }
 
 /* ==========================================================================
@@ -3326,20 +3324,34 @@ a:hover .arrow-circle svg { transform: translateX(3px); }
   .cookie-notice p { font-size: 13px; }
 }
 
-/* Переключатель языка (RU/EN) */
-.lang-switch {
-  display: inline-flex;
+/* Переключатель языка (RU/EN) — квадратная кнопка рядом с CTA */
+.lang-toggle {
+  display: flex;
   align-items: center;
-  gap: 5px;
-  margin-left: 8px;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-head);
+  font-weight: 700;
   font-size: 13px;
-  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color .2s var(--ease), color .2s var(--ease);
 }
-.lang-switch a { color: var(--muted); text-decoration: none; }
-.lang-switch a:hover { color: var(--accent); }
-.lang-switch a.active { color: var(--ink); }
-.lang-switch span { color: var(--border); }
-.mobile-nav .lang-switch {
-  margin: 4px 0 4px;
-  font-size: 15px;
+.lang-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+.mobile-nav-actions {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  margin-top: 28px;
+}
+.mobile-nav-actions .lang-toggle { width: 56px; height: auto; }
+.mobile-nav-actions .btn { flex: 1; margin-top: 0; }
+
+@media (max-width: 640px) {
+  .header-cta .lang-toggle { display: none; }
 }
