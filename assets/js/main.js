@@ -340,10 +340,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
     });
 
-    const triggerLabels = ["обсудить задачу", "получить hr-диагностику", "получить расчёт"];
-    document.querySelectorAll("a.btn, button.btn").forEach((el) => {
+    /* Кнопки со ссылкой на #contact открывают попап вместо прокрутки —
+       помечены атрибутом data-modal-trigger в HTML (не завязано на текст
+       кнопки, поэтому работает одинаково на русской и английской версии). */
+    document.querySelectorAll("a[data-modal-trigger], button[data-modal-trigger]").forEach((el) => {
       if (modal.contains(el)) return;
-      if (!triggerLabels.includes(el.textContent.trim().toLowerCase())) return;
       el.addEventListener("click", (e) => {
         e.preventDefault();
         openModal(el.textContent.trim());
