@@ -395,6 +395,19 @@ main > section:last-child { margin-bottom: var(--block-gap); }
   padding: 17px 24px;
   border-bottom: none;
 }
+.mobile-nav .lang-switch {
+  display: flex;
+  border-bottom: none;
+  padding: 4px 4px 0;
+}
+.mobile-nav .lang-switch a {
+  display: inline;
+  padding: 0;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  border-bottom: none;
+}
 
 /* ==========================================================================
    Hero
@@ -3311,4 +3324,22 @@ a:hover .arrow-circle svg { transform: translateX(3px); }
     gap: 14px;
   }
   .cookie-notice p { font-size: 13px; }
+}
+
+/* Переключатель языка (RU/EN) */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.lang-switch a { color: var(--muted); text-decoration: none; }
+.lang-switch a:hover { color: var(--accent); }
+.lang-switch a.active { color: var(--ink); }
+.lang-switch span { color: var(--border); }
+.mobile-nav .lang-switch {
+  margin: 4px 0 4px;
+  font-size: 15px;
 }

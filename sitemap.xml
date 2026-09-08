@@ -1,18 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://perfectmatch.pro/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://perfectmatch.pro/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectmatch.pro/en/"/>
   </url>
   <url>
     <loc>https://perfectmatch.pro/hr-as-a-service.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://perfectmatch.pro/hr-as-a-service.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectmatch.pro/en/hr-as-a-service.html"/>
   </url>
   <url>
     <loc>https://perfectmatch.pro/rpo.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://perfectmatch.pro/rpo.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectmatch.pro/en/rpo.html"/>
+  </url>
+  <url>
+    <loc>https://perfectmatch.pro/en/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://perfectmatch.pro/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectmatch.pro/en/"/>
+  </url>
+  <url>
+    <loc>https://perfectmatch.pro/en/hr-as-a-service.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://perfectmatch.pro/hr-as-a-service.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectmatch.pro/en/hr-as-a-service.html"/>
+  </url>
+  <url>
+    <loc>https://perfectmatch.pro/en/rpo.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://perfectmatch.pro/rpo.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectmatch.pro/en/rpo.html"/>
   </url>
 </urlset>

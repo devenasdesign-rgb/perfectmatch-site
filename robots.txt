@@ -2,5 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /policy.html
 Disallow: /consent.html
+Disallow: /en/policy.html
+Disallow: /en/consent.html
 
 Sitemap: https://perfectmatch.pro/sitemap.xml

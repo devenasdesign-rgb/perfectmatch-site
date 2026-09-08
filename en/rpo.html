@@ -1,38 +1,38 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RPO — внешняя функция рекрутмента | PerfectMatch</title>
-<meta name="description" content="RPO — передача функции подбора персонала внешней рекрутинговой команде: от поиска кандидатов до их выхода на работу.">
-<link rel="canonical" href="https://perfectmatch.pro/rpo.html">
+<title>RPO — external recruitment function | PerfectMatch</title>
+<meta name="description" content="RPO — outsourcing the recruitment function to an external recruiting team: from sourcing candidates to their start date.">
+<link rel="canonical" href="https://perfectmatch.pro/en/rpo.html">
 <link rel="alternate" hreflang="ru" href="https://perfectmatch.pro/rpo.html">
 <link rel="alternate" hreflang="en" href="https://perfectmatch.pro/en/rpo.html">
 <link rel="alternate" hreflang="x-default" href="https://perfectmatch.pro/rpo.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PerfectMatch">
-<meta property="og:title" content="RPO — внешняя функция рекрутмента | PerfectMatch">
-<meta property="og:description" content="RPO — передача функции подбора персонала внешней рекрутинговой команде: от поиска кандидатов до их выхода на работу.">
-<meta property="og:url" content="https://perfectmatch.pro/rpo.html">
+<meta property="og:title" content="RPO — external recruitment function | PerfectMatch">
+<meta property="og:description" content="RPO — outsourcing the recruitment function to an external recruiting team: from sourcing candidates to their start date.">
+<meta property="og:url" content="https://perfectmatch.pro/en/rpo.html">
 <meta property="og:image" content="https://perfectmatch.pro/assets/img/og-cover.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:locale" content="ru_RU">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="RPO — внешняя функция рекрутмента | PerfectMatch">
-<meta name="twitter:description" content="RPO — передача функции подбора персонала внешней рекрутинговой команде: от поиска кандидатов до их выхода на работу.">
+<meta name="twitter:title" content="RPO — external recruitment function | PerfectMatch">
+<meta name="twitter:description" content="RPO — outsourcing the recruitment function to an external recruiting team: from sourcing candidates to their start date.">
 <meta name="twitter:image" content="https://perfectmatch.pro/assets/img/og-cover.png">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=58">
+<link rel="stylesheet" href="/assets/css/style.css?v=58">
 </head>
 <body data-page="RPO">
 
-<div class="preloader" id="preloader" role="status" aria-label="Загрузка">
+<div class="preloader" id="preloader" role="status" aria-label="Loading">
   <svg class="preloader-logo" aria-hidden="true" viewBox="0 0 267 42" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path class="pl-bar" style="animation-delay:0s" d="M8.82956 11.2808V30.6598L0 35.0637V6.877L8.82956 11.2808Z" fill="#111318"/>
 <path class="pl-bar" style="animation-delay:.12s" d="M21.8192 11.2808V30.6598L12.9896 35.0637V6.877L21.8192 11.2808Z" fill="#111318"/>
@@ -55,88 +55,88 @@
 </div>
 <div class="modal-overlay" id="requestModal">
   <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalFormTitle">
-    <button type="button" class="modal-close" aria-label="Закрыть">
+    <button type="button" class="modal-close" aria-label="Close">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 3L13 13M13 3L3 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
     </button>
 
-    <form class="request-form modal-form" novalidate>
+    <form class="request-form modal-form" novalidate data-source="Popup (EN)">
       <div class="rf-head">
-        <h3 id="modalFormTitle">Оставить заявку</h3>
-        <p>Заполним пару полей — остальное обсудим при разговоре.</p>
+        <h3 id="modalFormTitle">Leave a request</h3>
+        <p>Fill in a couple of fields — we'll discuss the rest on a call.</p>
       </div>
 
       <div class="field">
-        <label for="modal-rf-name">Ваше имя</label>
-        <input type="text" id="modal-rf-name" name="name" placeholder="Как к вам обращаться" autocomplete="name" required>
-        <span class="field-error">Укажите, как к вам обращаться</span>
+        <label for="modal-rf-name">Your name</label>
+        <input type="text" id="modal-rf-name" name="name" placeholder="How should we address you" autocomplete="name" required>
+        <span class="field-error">Please tell us how to address you</span>
       </div>
 
       <div class="field">
-        <label for="modal-rf-contact">Телефон или e-mail</label>
-        <input type="text" id="modal-rf-contact" name="contact" placeholder="+7 (900) 000-00-00 или mail@company.ru" autocomplete="tel" required>
-        <span class="field-error">Оставьте телефон или почту для связи</span>
+        <label for="modal-rf-contact">Phone or e-mail</label>
+        <input type="text" id="modal-rf-contact" name="contact" placeholder="+1 000 000 0000 or mail@company.com" autocomplete="tel" required>
+        <span class="field-error">Leave a phone number or e-mail so we can reach you</span>
       </div>
 
       <label class="field-check">
         <input type="checkbox" name="consent" required>
         <span class="box"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5L5.5 10.5L11.5 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <span class="check-text">Я даю согласие на обработку персональных данных на условиях <a href="consent.html" target="_blank" rel="noopener" class="policy-link">Согласия на обработку персональных данных</a> и соглашаюсь с <a href="policy.html" target="_blank" rel="noopener" class="policy-link">политикой конфиденциальности</a></span>
+        <span class="check-text">I consent to the processing of my personal data under the terms of the <a href="consent.html" target="_blank" rel="noopener" class="policy-link">Personal Data Processing Consent</a> and agree to the <a href="policy.html" target="_blank" rel="noopener" class="policy-link">Privacy Policy</a></span>
       </label>
-      <span class="field-error consent-error">Нужно согласие на обработку данных</span>
+      <span class="field-error consent-error">Consent to data processing is required</span>
 
       <button type="submit" class="btn btn-primary btn-lg rf-submit">
-        Отправить заявку
+        Send request
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
 
-      <p class="rf-note">Время ответа в среднем около одного часа</p>
-          <p class="rf-error" hidden>Не удалось отправить заявку. Напишите нам на <a href="mailto:p.yasin@perfectmatch.pro">p.yasin@perfectmatch.pro</a> — ответим так же быстро.</p>
+      <p class="rf-note">Average response time is about an hour</p>
+          <p class="rf-error" hidden>Couldn't send the request. Email us at <a href="mailto:p.yasin@perfectmatch.pro">p.yasin@perfectmatch.pro</a> — we'll reply just as fast.</p>
 
       <div class="rf-success" hidden>
         <div class="rf-success-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <strong>Заявка отправлена</strong>
-        <p>Заявку получили и уже передали команде — ответим в течение часа.</p>
+        <strong>Request sent</strong>
+        <p>We've received your request and passed it to the team — we'll reply within an hour.</p>
       </div>
     </form>
   </div>
 </div>
 
 <div class="cookie-notice" id="cookieNotice" role="dialog" aria-live="polite" hidden>
-  <p>Мы используем файлы cookie, чтобы сайт работал корректно и мы могли улучшать его для вас. Подробнее — в <a href="policy.html" target="_blank" rel="noopener">политике конфиденциальности</a>.</p>
+  <p>We use cookies to make the site work correctly and to improve it for you. Learn more in our <a href="policy.html" target="_blank" rel="noopener">Privacy Policy</a>.</p>
   <div class="cookie-notice-actions">
-    <button type="button" class="btn btn-primary cookie-accept">Хорошо</button>
+    <button type="button" class="btn btn-primary cookie-accept">Got it</button>
   </div>
 </div>
 
 <header class="site-header">
   <div class="container">
     <a href="index.html" class="logo">
-      <img src="assets/img/logo-lockup-dark.svg" alt="PerfectMatch" class="logo-lockup">
-      <img src="assets/img/logo-mark-dark.svg" alt="PerfectMatch" class="logo-mark-only">
+      <img src="/assets/img/logo-lockup-dark.svg" alt="PerfectMatch" class="logo-lockup">
+      <img src="/assets/img/logo-mark-dark.svg" alt="PerfectMatch" class="logo-mark-only">
     </a>
     <nav class="main-nav">
-      <a href="index.html#about">О компании</a>
+      <a href="index.html#about">About</a>
       <a href="hr-as-a-service.html">HR-as-a-Service</a>
       <a href="rpo.html" class="active">RPO</a>
-      <span class="lang-switch"><a href="rpo.html" class="active">RU</a><span>/</span><a href="/en/rpo.html">EN</a></span>
+      <span class="lang-switch"><a href="/rpo.html">RU</a><span>/</span><a href="rpo.html" class="active">EN</a></span>
     </nav>
     <div class="header-cta">
       <a href="#contact" class="btn btn-outline" data-modal-trigger>
-        <span class="btn-label-full">Обсудить задачу</span>
+        <span class="btn-label-full">Discuss your task</span>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <button class="nav-toggle" aria-label="Открыть меню"><span></span></button>
+      <button class="nav-toggle" aria-label="Open menu"><span></span></button>
     </div>
   </div>
 </header>
 
 <div class="mobile-nav">
-  <a href="index.html#about">О компании</a>
+  <a href="index.html#about">About</a>
   <a href="hr-as-a-service.html">HR-as-a-Service</a>
   <a href="rpo.html">RPO</a>
-  <span class="lang-switch"><a href="rpo.html" class="active">RU</a><span>/</span><a href="/en/rpo.html">EN</a></span>
+  <span class="lang-switch"><a href="/rpo.html">RU</a><span>/</span><a href="rpo.html" class="active">EN</a></span>
   <a href="#contact" class="btn btn-primary" data-modal-trigger>
-    Обсудить задачу
+    Discuss your task
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </a>
 </div>
@@ -147,77 +147,77 @@
   <section class="page-hero">
     <div class="container">
       <div class="breadcrumb reveal">
-        <a href="index.html">Главная</a>
+        <a href="index.html">Home</a>
         <span>/</span>
         <span class="current">RPO</span>
       </div>
 
       <div class="page-hero-grid">
         <div class="page-hero-inner reveal">
-          <div class="eyebrow">Нужен подбор</div>
-          <h1>RPO — <span class="accent">внешняя функция рекрутмента</span></h1>
-          <div class="service-tag">Передайте подбор персонала профессиональной команде</div>
-          <p class="lead lead-main">RPO (Recruitment Process Outsourcing) — передача функции подбора персонала внешней рекрутинговой команде.</p>
+          <div class="eyebrow">Need recruitment</div>
+          <h1>RPO — <span class="accent">external recruitment function</span></h1>
+          <div class="service-tag">Hand recruitment over to a professional team</div>
+          <p class="lead lead-main">RPO (Recruitment Process Outsourcing) — outsourcing the recruitment function to an external recruiting team.</p>
           <ul class="hero-points">
-            <li>Мы становимся частью вашего бизнеса, погружаемся в задачи компании и полностью или частично берём на себя процесс найма — от поиска кандидатов до их выхода на работу.</li>
+            <li>We become part of your business, get immersed in your company's tasks, and take on the hiring process fully or partially — from sourcing candidates to their start date.</li>
           </ul>
           <div class="btn-row">
-            <a href="#contact" class="btn btn-primary btn-lg" data-modal-trigger>Обсудить задачу</a>
-            <a href="hr-as-a-service.html" class="btn btn-outline btn-lg">Нужен HR</a>
+            <a href="#contact" class="btn btn-primary btn-lg" data-modal-trigger>Discuss your task</a>
+            <a href="hr-as-a-service.html" class="btn btn-outline btn-lg">Need HR</a>
           </div>
         </div>
 
         <aside class="offer-card reveal reveal-delay-1">
           <div class="offer-row">
-            <span class="offer-label">Формат</span>
-            <span class="offer-value">Выделенный рекрутер или команда рекрутеров</span>
+            <span class="offer-label">Format</span>
+            <span class="offer-value">A dedicated recruiter or recruiting team</span>
           </div>
           <div class="offer-row">
-            <span class="offer-label">Стоимость</span>
-            <span class="offer-value offer-price">Расчёт <span>под объём найма</span></span>
+            <span class="offer-label">Cost</span>
+            <span class="offer-value offer-price">Custom quote <span>based on hiring volume</span></span>
           </div>
           <div class="offer-row">
-            <span class="offer-label">Объём</span>
-            <span class="offer-value">Полностью или частично берём на себя процесс найма</span>
+            <span class="offer-label">Scope</span>
+            <span class="offer-value">We take on the hiring process fully or partially</span>
           </div>
           <div class="offer-row">
-            <span class="offer-label">Зона ответственности</span>
-            <span class="offer-value">От поиска кандидатов до их выхода на работу</span>
+            <span class="offer-label">Area of responsibility</span>
+            <span class="offer-value">From sourcing candidates to their start date</span>
           </div>
           <a href="#scope" class="btn btn-primary offer-cta">
-            Что мы берём на себя
+            What we take on
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </aside>
       </div>
 
       <div class="hero-trust reveal">
-        <span class="hero-trust-label">Работали с командами</span>
+        <span class="hero-trust-label">We've worked with teams from</span>
         <div class="hero-ticker">
           <div class="hero-ticker-track">
             <div class="hero-ticker-set">
-              <img src="assets/img/logos/microsoft.png" alt="Microsoft" data-tall>
-              <img src="assets/img/logos/yandex.png" alt="Яндекс">
-              <img src="assets/img/logos/avito.png" alt="Avito">
-              <img src="assets/img/logos/raiffeisenbank.png" alt="Raiffeisenbank">
-              <img src="assets/img/logos/tele2.png" alt="Tele2">
-              <img src="assets/img/logos/accenture.png" alt="Accenture" data-tall>
-              <img src="assets/img/logos/ericsson.png" alt="Ericsson" data-tall>
-              <img src="assets/img/logos/toyota.png" alt="Toyota">
-              <img src="assets/img/logos/spar.png" alt="SPAR">
-              <img src="assets/img/logos/salampay.png" alt="SalamPay">
+              <img src="/assets/img/logos/microsoft.png" alt="Microsoft" data-tall>
+              <img src="/assets/img/logos/yandex.png" alt="Yandex">
+              <img src="/assets/img/logos/avito.png" alt="Avito">
+              <img src="/assets/img/logos/raiffeisenbank.png" alt="Raiffeisenbank">
+              <img src="/assets/img/logos/tele2.png" alt="Tele2">
+              <img src="/assets/img/logos/accenture.png" alt="Accenture" data-tall>
+              <img src="/assets/img/logos/ericsson.png" alt="Ericsson" data-tall>
+              <img src="/assets/img/logos/toyota.png" alt="Toyota">
+              <img src="/assets/img/logos/spar.png" alt="SPAR">
+              <img src="/assets/img/logos/salampay.png" alt="SalamPay">
             </div>
             <div class="hero-ticker-set" aria-hidden="true">
-              <img src="assets/img/logos/microsoft.png" alt="Microsoft" data-tall>
-              <img src="assets/img/logos/yandex.png" alt="Яндекс">
-              <img src="assets/img/logos/avito.png" alt="Avito">
-              <img src="assets/img/logos/raiffeisenbank.png" alt="Raiffeisenbank">
-              <img src="assets/img/logos/tele2.png" alt="Tele2">
-              <img src="assets/img/logos/accenture.png" alt="Accenture" data-tall>
-              <img src="assets/img/logos/ericsson.png" alt="Ericsson" data-tall>
-              <img src="assets/img/logos/toyota.png" alt="Toyota">
-              <img src="assets/img/logos/spar.png" alt="SPAR">
-              <img src="assets/img/logos/salampay.png" alt="SalamPay">
+              <img src="/assets/img/logos/microsoft.png" alt="Microsoft" data-tall>
+              <img src="/assets/img/logos/yandex.png" alt="Yandex">
+              <img src="/assets/img/logos/avito.png" alt="Avito">
+              <img src="/assets/img/logos/raiffeisenbank.png" alt="Raiffeisenbank">
+              <img src="/assets/img/logos/tele2.png" alt="Tele2">
+              <img src="/assets/img/logos/accenture.png" alt="Accenture" data-tall>
+              <img src="/assets/img/logos/ericsson.png" alt="Ericsson" data-tall>
+              <img src="/assets/img/logos/toyota.png" alt="Toyota">
+              <img src="/assets/img/logos/spar.png" alt="SPAR">
+              <img src="/assets/img/logos/salampay.png" alt="SalamPay">
             </div>
           </div>
         </div>
@@ -229,22 +229,22 @@
   <section class="scope-section" id="scope">
     <div class="container">
       <div class="section-head reveal">
-        <div class="eyebrow">Описание услуги</div>
-        <h2>Что мы берём на себя</h2>
+        <div class="eyebrow">Service description</div>
+        <h2>What we take on</h2>
       </div>
       <div class="scope-grid reveal">
-          <div class="scope-item"><span class="scope-num">01</span><span class="scope-text">Выделенный рекрутер или команда рекрутеров</span></div>
-          <div class="scope-item"><span class="scope-num">02</span><span class="scope-text">Погружение в бизнес и корпоративную культуру</span></div>
-          <div class="scope-item"><span class="scope-num">03</span><span class="scope-text">Формирование профиля кандидата</span></div>
-          <div class="scope-item"><span class="scope-num">04</span><span class="scope-text">Поиск и привлечение специалистов</span></div>
-          <div class="scope-item"><span class="scope-num">05</span><span class="scope-text">Работа с входящими откликами</span></div>
-          <div class="scope-item"><span class="scope-num">06</span><span class="scope-text">Прямой поиск и HeadHunting</span></div>
-          <div class="scope-item"><span class="scope-num">07</span><span class="scope-text">Первичный отбор и интервью</span></div>
-          <div class="scope-item"><span class="scope-num">08</span><span class="scope-text">Формирование short-list кандидатов</span></div>
-          <div class="scope-item"><span class="scope-num">09</span><span class="scope-text">Организация интервью с руководителями</span></div>
-          <div class="scope-item"><span class="scope-num">10</span><span class="scope-text">Сопровождение кандидата до выхода</span></div>
-          <div class="scope-item"><span class="scope-num">11</span><span class="scope-text">Контроль сроков и качества подбора</span></div>
-          <div class="scope-item"><span class="scope-num">12</span><span class="scope-text">Регулярная аналитика и отчётность</span></div>
+          <div class="scope-item"><span class="scope-num">01</span><span class="scope-text">A dedicated recruiter or recruiting team</span></div>
+          <div class="scope-item"><span class="scope-num">02</span><span class="scope-text">Immersion in your business and corporate culture</span></div>
+          <div class="scope-item"><span class="scope-num">03</span><span class="scope-text">Building a candidate profile</span></div>
+          <div class="scope-item"><span class="scope-num">04</span><span class="scope-text">Sourcing and attracting specialists</span></div>
+          <div class="scope-item"><span class="scope-num">05</span><span class="scope-text">Handling inbound applications</span></div>
+          <div class="scope-item"><span class="scope-num">06</span><span class="scope-text">Direct search and headhunting</span></div>
+          <div class="scope-item"><span class="scope-num">07</span><span class="scope-text">Initial screening and interviews</span></div>
+          <div class="scope-item"><span class="scope-num">08</span><span class="scope-text">Building a candidate shortlist</span></div>
+          <div class="scope-item"><span class="scope-num">09</span><span class="scope-text">Arranging interviews with managers</span></div>
+          <div class="scope-item"><span class="scope-num">10</span><span class="scope-text">Supporting the candidate through to their start date</span></div>
+          <div class="scope-item"><span class="scope-num">11</span><span class="scope-text">Controlling hiring timelines and quality</span></div>
+          <div class="scope-item"><span class="scope-num">12</span><span class="scope-text">Regular analytics and reporting</span></div>
       </div>
     </div>
   </section>
@@ -254,15 +254,15 @@
     <div class="container">
       <div class="metrics-panel reveal">
         <div class="metrics-head">
-          <div class="eyebrow on-dark">Кому подходит</div>
-          <h2>Для кого подходит RPO</h2>
+          <div class="eyebrow on-dark">Who it's for</div>
+          <h2>Who RPO is a good fit for</h2>
         </div>
         <div class="metrics-grid">
-            <div class="metric-item"><span class="metric-num"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="metric-text">Компании с постоянной потребностью в найме</span></div>
-            <div class="metric-item"><span class="metric-num"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="metric-text">Быстрорастущие компании и стартапы</span></div>
-            <div class="metric-item"><span class="metric-num"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="metric-text">Бизнесы, которым необходимо масштабировать команду</span></div>
-            <div class="metric-item"><span class="metric-num"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="metric-text">Компании, где собственный отдел рекрутинга не справляется с объёмом вакансий</span></div>
-            <div class="metric-item"><span class="metric-num"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="metric-text">Компании, которым нужно временно усилить команду рекрутеров</span></div>
+            <div class="metric-item"><span class="metric-num"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="metric-text">Companies with an ongoing need for hiring</span></div>
+            <div class="metric-item"><span class="metric-num"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="metric-text">Fast-growing companies and startups</span></div>
+            <div class="metric-item"><span class="metric-num"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="metric-text">Businesses that need to scale their team</span></div>
+            <div class="metric-item"><span class="metric-num"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="metric-text">Companies whose in-house recruiting team can't keep up with the volume of open roles</span></div>
+            <div class="metric-item"><span class="metric-num"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="metric-text">Companies that need to temporarily reinforce their recruiting team</span></div>
         </div>
       </div>
     </div>
@@ -272,19 +272,19 @@
   <section class="plain-section">
     <div class="container">
       <div class="section-head reveal">
-        <div class="eyebrow">Почему RPO</div>
-        <h2>Полноценная функция подбора, а не рекрутер на одну вакансию</h2>
+        <div class="eyebrow">Why RPO</div>
+        <h2>A complete recruitment function, not a recruiter for a single vacancy</h2>
       </div>
       <div class="why-grid">
         <div class="why-card reveal">
           <div class="why-num">01</div>
-          <h4>Не рекрутер на одну вакансию — полноценная функция подбора</h4>
-          <p>Мы работаем как часть вашей команды, погружаемся в специфику бизнеса, соблюдаем ваши стандарты и процессы и управляем всей воронкой найма. Вместо поиска и найма дополнительных рекрутеров в штат вы получаете готовую команду с необходимой экспертизой и ресурсами.</p>
+          <h4>Not a recruiter for a single vacancy — a complete recruitment function</h4>
+          <p>We work as part of your team, get immersed in the specifics of your business, follow your standards and processes, and manage the entire hiring funnel. Instead of searching for and hiring additional recruiters on staff, you get a ready-made team with the expertise and resources you need.</p>
         </div>
         <div class="why-card reveal reveal-delay-1">
           <div class="why-num">02</div>
-          <h4>Масштабируйте подбор тогда, когда это нужно бизнесу</h4>
-          <p>Увеличивайте или сокращайте объём рекрутинговой функции в зависимости от текущих задач компании — без затрат и рисков, связанных с расширением собственного штата.</p>
+          <h4>Scale recruitment when your business needs it</h4>
+          <p>Increase or reduce the scope of the recruitment function depending on your company's current needs — without the costs and risks of expanding your own in-house team.</p>
         </div>
       </div>
     </div>
@@ -296,71 +296,71 @@
       <div class="cta-panel reveal">
 
         <div class="cta-copy">
-          <div class="eyebrow on-dark">Остались вопросы?</div>
-          <h2>Готовы масштабировать подбор вместе с PerfectMatch?</h2>
-          <p class="cta-lead">Расскажите о задаче по найму — предложим формат RPO и рассчитаем стоимость.</p>
+          <div class="eyebrow on-dark">Have questions?</div>
+          <h2>Ready to scale recruitment together with PerfectMatch?</h2>
+          <p class="cta-lead">Tell us about your hiring needs — we'll suggest an RPO format and calculate the cost.</p>
 
           <ul class="cta-points">
             <li>
               <span class="cta-point-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke-width="1.8"/><path d="M12 7.5V12l3 2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              Ответим в течение часа
+              We reply within an hour
             </li>
             <li>
               <span class="cta-point-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              Первая консультация бесплатна
+              The first consultation is free
             </li>
             <li>
               <span class="cta-point-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4.5" y="10" width="15" height="10" rx="2.5" stroke-width="1.8"/><path d="M8 10V7.5a4 4 0 018 0V10" stroke-width="1.8" stroke-linecap="round"/></svg></span>
-              Данные не передаём третьим лицам
+              We don't share your data with third parties
             </li>
           </ul>
 
           <div class="cta-alt">
-            <span class="cta-alt-text">Нужен не подбор, а HR-функция целиком?</span>
+            <span class="cta-alt-text">Need the full HR function, not just recruitment?</span>
             <a href="hr-as-a-service.html" class="cta-alt-link">
-              Смотреть HR-as-a-Service
+              View HR-as-a-Service
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
         </div>
 
-        <form class="request-form cta-form" novalidate data-source="Форма на странице RPO">
+        <form class="request-form cta-form" novalidate data-source="RPO page form (EN)">
           <div class="rf-head">
-            <h3>Заявка на консультацию</h3>
-            <p>Заполним пару полей — остальное обсудим при разговоре.</p>
+            <h3>Request a consultation</h3>
+            <p>Fill in a couple of fields — we'll discuss the rest on a call.</p>
           </div>
 
           <div class="field">
-            <label for="cta-rf-name">Ваше имя</label>
-            <input type="text" id="cta-rf-name" name="name" placeholder="Как к вам обращаться" autocomplete="name" required>
-            <span class="field-error">Укажите, как к вам обращаться</span>
+            <label for="cta-rf-name">Your name</label>
+            <input type="text" id="cta-rf-name" name="name" placeholder="How should we address you" autocomplete="name" required>
+            <span class="field-error">Please tell us how to address you</span>
           </div>
 
           <div class="field">
-            <label for="cta-rf-contact">Телефон или e-mail</label>
-            <input type="text" id="cta-rf-contact" name="contact" placeholder="+7 (900) 000-00-00 или mail@company.ru" autocomplete="tel" required>
-            <span class="field-error">Оставьте телефон или почту для связи</span>
+            <label for="cta-rf-contact">Phone or e-mail</label>
+            <input type="text" id="cta-rf-contact" name="contact" placeholder="+1 000 000 0000 or mail@company.com" autocomplete="tel" required>
+            <span class="field-error">Leave a phone number or e-mail so we can reach you</span>
           </div>
 
           <label class="field-check">
             <input type="checkbox" name="consent" required>
             <span class="box"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5L5.5 10.5L11.5 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            <span class="check-text">Я даю согласие на обработку персональных данных на условиях <a href="consent.html" target="_blank" rel="noopener" class="policy-link">Согласия на обработку персональных данных</a> и соглашаюсь с <a href="policy.html" target="_blank" rel="noopener" class="policy-link">политикой конфиденциальности</a></span>
+            <span class="check-text">I consent to the processing of my personal data under the terms of the <a href="consent.html" target="_blank" rel="noopener" class="policy-link">Personal Data Processing Consent</a> and agree to the <a href="policy.html" target="_blank" rel="noopener" class="policy-link">Privacy Policy</a></span>
           </label>
-          <span class="field-error consent-error">Нужно согласие на обработку данных</span>
+          <span class="field-error consent-error">Consent to data processing is required</span>
 
           <button type="submit" class="btn btn-primary btn-lg rf-submit">
-            Отправить заявку
+            Send request
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
 
-          <p class="rf-note">Время ответа в среднем около одного часа</p>
-          <p class="rf-error" hidden>Не удалось отправить заявку. Напишите нам на <a href="mailto:p.yasin@perfectmatch.pro">p.yasin@perfectmatch.pro</a> — ответим так же быстро.</p>
+          <p class="rf-note">Average response time is about an hour</p>
+          <p class="rf-error" hidden>Couldn't send the request. Email us at <a href="mailto:p.yasin@perfectmatch.pro">p.yasin@perfectmatch.pro</a> — we'll reply just as fast.</p>
 
           <div class="rf-success" hidden>
             <div class="rf-success-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <strong>Заявка отправлена</strong>
-            <p>Заявку получили и уже передали команде — ответим в течение часа.</p>
+            <strong>Request sent</strong>
+            <p>We've received your request and passed it to the team — we'll reply within an hour.</p>
           </div>
         </form>
 
@@ -375,36 +375,36 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="index.html" class="logo">
-          <img src="assets/img/logo-lockup-white.svg" alt="PerfectMatch" class="logo-lockup">
+          <img src="/assets/img/logo-lockup-white.svg" alt="PerfectMatch" class="logo-lockup">
         </a>
-        <p>HR, который работает на ваш бизнес. Внешний HR-департамент и подбор персонала для компаний, которые растут.</p>
+        <p>HR that works for your business. An external HR department and recruitment for growing companies.</p>
       </div>
       <div class="footer-col">
-        <h5>Решения</h5>
+        <h5>Solutions</h5>
         <a href="hr-as-a-service.html">HR-as-a-Service</a>
         <a href="rpo.html">RPO</a>
-        <a href="index.html#diagnostic">HR-диагностика</a>
+        <a href="index.html#diagnostic">HR diagnostics</a>
       </div>
       <div class="footer-col">
-        <h5>Компания</h5>
-        <a href="index.html#about">О компании</a>
-        <a href="index.html#contact">Контакты</a>
+        <h5>Company</h5>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
       </div>
       <div class="footer-col">
-        <h5>Контакты</h5>
+        <h5>Contact</h5>
         <a href="mailto:p.yasin@perfectmatch.pro">p.yasin@perfectmatch.pro</a>
         <a href="tel:+79637820270">+7 (963) 782-02-70</a>
         <a href="https://t.me/YasinPavel" target="_blank" rel="noopener">Telegram</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 PerfectMatch. Все права защищены.</span>
-      <a href="policy.html">Политика конфиденциальности</a>
-      <a href="consent.html">Согласие на обработку данных</a>
+      <span>© 2026 PerfectMatch. All rights reserved.</span>
+      <a href="policy.html">Privacy Policy</a>
+      <a href="consent.html">Data Processing Consent</a>
     </div>
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=20"></script>
+<script src="/assets/js/main.js?v=20"></script>
 </body>
 </html>

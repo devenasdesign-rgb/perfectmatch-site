@@ -249,9 +249,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       /* Запасной путь: пока адрес таблицы не вписан, заявка уходит
          письмом через почтовую программу — как было раньше. */
+      const isEn = document.documentElement.lang === "en";
       const sendByMail = () => {
-        const subject = "Заявка с сайта PerfectMatch";
-        const body = `Имя: ${name}\nКонтакт: ${contact}\nИсточник: ${source}\n\nОтправлено с сайта perfectmatch.pro`;
+        const subject = isEn ? "Request from perfectmatch.pro" : "Заявка с сайта PerfectMatch";
+        const body = isEn
+          ? `Name: ${name}\nContact: ${contact}\nSource: ${source}\n\nSent from perfectmatch.pro`
+          : `Имя: ${name}\nКонтакт: ${contact}\nИсточник: ${source}\n\nОтправлено с сайта perfectmatch.pro`;
         window.location.href =
           "mailto:p.yasin@perfectmatch.pro?subject=" +
           encodeURIComponent(subject) +
